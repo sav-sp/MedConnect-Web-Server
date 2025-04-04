@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Login - medconnect</title>
+
+  <!-- Reuse the existing login.css -->
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <form action="process-login-doctor.php" method="POST" class="login-box">
+      <h2>DOCTOR LOGIN</h2>
+
+      <!-- Username input -->
+      <input type="text" name="Email" placeholder="Email" required>
+
+      <!-- Password input -->
+      <input type="Password" name="Password" placeholder="Password" required>
+
+      <!-- Forgot password link -->
+      <a href="#">Forgot Password</a>
+
+      <!-- Login button -->
+      <button type="submit">Login</button>
+
+      <!-- Link to patient login -->
+      <p>Not a doctor? <a href="login.html">Patient Login</a></p>
+    </form>
+  </div>
+
+</body>
+</html>

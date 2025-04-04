@@ -1,0 +1,33 @@
+/* Style for the entire page */
+body {
+    background-color: #e0f7f9; /* Light blue medical theme */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 100px;
+  }
+  
+  /* Centered container for content */
+  .container {
+    display: inline-block;
+    padding: 30px;
+  }
+  
+  /* Main heading */
+  h1 {
+    margin-bottom: 30px;
+    color: #00bcd4;
+  }
+  
+  /* Button styling */
+  .btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #00bcd4; /* Matches login button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  

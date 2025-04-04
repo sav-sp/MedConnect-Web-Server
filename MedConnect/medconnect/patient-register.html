@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Register - medconnect</title>
+
+  <!-- ✅ This line connects the HTML to your register.css file -->
+  <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+  <!-- Main registration box -->
+  <div class="register-container">
+    <form action="process-patient-register.php" method="POST" class="register-box">
+
+      <h2>PATIENT REGISTER</h2>
+
+      <!-- Input fields -->
+      <input type="text" name="Fullname" placeholder="Full Name" required>
+    <input type="email" name="Email" placeholder="Email" required>
+    <input type="password" name="Password" placeholder="Password" required>
+    <input type="password" name="Confirm_Password" placeholder="Confirm Password" required>
+
+
+      <!-- Submit button -->
+      <button type="submit">Register</button>
+
+      <!-- Link to login -->
+      <p>Already have an account? <a href="login.html">Login</a></p>
+
+    </form>
+  </div>
+
+</body>
+</html>

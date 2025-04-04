@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Appointment History - Medconnect</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <h2>Appointment History</h2>
+
+    <table class="appointment-table">
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--   -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Fetch appointment history for the logged-in patient
+    fetch('fetch_patient_appointment.php')
+      .then(response => response.json())
+      .then(data => {
+        const tbody = document.querySelector('.appointment-table tbody');
+        data.forEach(appointment => {
+          const row = document.createElement('tr');
+          // Build the table row with appointment data
+          row.innerHTML = `
+            <td>Dr. ${appointment.doctor_name} (${appointment.specialization})</td>
+            <td>${appointment.date}</td>
+            <td>${appointment.time}</td>
+            <td>${appointment.status}</td>
+            <td>
+              <button onclick="cancelAppointment(${appointment.appointment_id})">Cancel</button>
+            </td>`;
+          tbody.appendChild(row);
+        });
+      })
+      .catch(error => console.error('Error fetching appointment history:', error));
+
+    // Cancel appointment function that sends a POST request to cancel_appointment.php
+    function cancelAppointment(appointmentId) {
+      if (confirm("Are you sure you want to cancel this appointment?")) {
+        fetch('cancel_appointment.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: `appointment_id=${appointmentId}`
+        })
+        .then(response => response.text())
+        .then(message => {
+          alert(message);
+          // Reload page to refresh appointment list after cancellation
+          location.reload();
+        })
+        .catch(error => console.error('Error cancelling appointment:', error));
+      }
+    }
+  </script>
+
+
+
+</body>
+</html>
